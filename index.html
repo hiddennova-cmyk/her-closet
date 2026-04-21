@@ -149,6 +149,13 @@ var OUTFIT_URLS = {
   softfem:   'outfits/soft-fem.png',
   nightglow: 'outfits/night-glow.png'
 };
+// Outfits that are transparent PNGs (no black stripping needed)
+var TRANSPARENT_OUTFITS = {
+  blackgown: true,
+  goldgown:  true,
+  softfem:   true,
+  nightglow: true
+};
 
 var canvas = document.getElementById('stage');
 var ctx    = canvas.getContext('2d');
@@ -255,7 +262,7 @@ function render() {
   else { ctx.fillStyle='#000'; }
   ctx.fillRect(0,0,W,H);
   if (baseImg) drawLayer(baseImg,W,H);
-  if (state.outfit&&outfitImgs[state.outfit]) stripAndDraw(outfitImgs[state.outfit].img,W,H);
+  if (state.outfit&&outfitImgs[state.outfit]) { if(TRANSPARENT_OUTFITS[state.outfit]) drawLayer(outfitImgs[state.outfit].img,W,H); else stripAndDraw(outfitImgs[state.outfit].img,W,H); }
   if (state.hair&&hairImgs[state.hair]) drawLayer(hairImgs[state.hair],W,H);
 }
 
