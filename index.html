@@ -74,6 +74,19 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
 .toast.show{transform:translateX(-50%) translateY(0);}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+.cat-pills{display:flex;flex-wrap:wrap;gap:4px;padding:8px;border-bottom:1px solid rgba(201,168,76,0.15);flex-shrink:0;}
+.pill{font-size:0.4rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 9px;border-radius:20px;border:1px solid rgba(201,168,76,0.2);color:var(--mink);background:none;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.18s;}
+.pill.on{background:var(--gold);color:#0a0705;border-color:var(--gold);}
+.pill-section{display:none!important;flex-direction:column;gap:3px;}
+.pill-section.on{display:flex!important;}
+.slot-icon{width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;background:#F5ECD8;font-size:0.75rem;transition:border-color 0.18s;}
+.scene-bottom{border-top:1px solid rgba(201,168,76,0.15);padding:8px;flex-shrink:0;background:var(--panel);}
+.scene-bottom-title{font-size:0.38rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;}
+.scene-bottom-row{display:flex;flex-direction:column;gap:3px;}
+.scene-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:7px;cursor:pointer;border:1.5px solid transparent;transition:all 0.18s;background:none;width:100%;font-family:'Jost',sans-serif;}
+.scene-item:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.2);}
+.scene-item.on{background:rgba(201,168,76,0.1);border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -82,6 +95,13 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
 
   <div class="panel panel-left">
     <div class="panel-title">Hair</div>
+    <div class="cat-pills">
+      <button class="pill on" onclick="switchPill(this,'all')">All</button>
+      <button class="pill" onclick="switchPill(this,'natural')">Natural</button>
+      <button class="pill" onclick="switchPill(this,'straight')">Straight</button>
+      <button class="pill" onclick="switchPill(this,'updo')">Updo</button>
+      <button class="pill" onclick="switchPill(this,'braids')">Braids</button>
+    </div>
     <div class="panel-scroll">
       <button class="slot on" data-key="none" id="slot-none">
         <div class="slot-icon">✕</div>
@@ -89,27 +109,49 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
         <div class="slot-dot"></div>
       </button>
 
-      <!-- Hair slots — images load from /hair/ folder in repo -->
-      <button class="slot" data-key="braids" id="slot-braids">
-        <div class="slot-icon" id="icon-braids">💫</div>
-        <div class="slot-info"><div class="slot-name">Box Braids</div><div class="slot-sub" id="sub-braids">Loading...</div></div>
-        <div class="slot-dot"></div>
-      </button>
-      <button class="slot" data-key="sleek" id="slot-sleek">
-        <div class="slot-icon" id="icon-sleek">💇🏿</div>
-        <div class="slot-info"><div class="slot-name">Sleek Straight</div><div class="slot-sub" id="sub-sleek">Loading...</div></div>
-        <div class="slot-dot"></div>
-      </button>
-      <button class="slot dim"><div class="slot-icon">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
-      <button class="slot dim"><div class="slot-icon">✨</div><div class="slot-info"><div class="slot-name">Big Afro</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
-      <button class="slot dim"><div class="slot-icon">👑</div><div class="slot-info"><div class="slot-name">Loc Updo</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
-
-      <div class="section-div">Scene</div>
-      <button class="scene-item on" data-scene="black"><div class="scene-swatch" style="background:#000;border:1px solid #333;"></div><div class="scene-name">Black</div><div class="scene-dot"></div></button>
-      <button class="scene-item" data-scene="closet"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0e06,#3d2010);"></div><div class="scene-name">The Closet</div><div class="scene-dot"></div></button>
-      <button class="scene-item" data-scene="city"><div class="scene-swatch" style="background:linear-gradient(135deg,#06060f,#1a1a3a);"></div><div class="scene-name">City Night</div><div class="scene-dot"></div></button>
-      <button class="scene-item" data-scene="golden"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0800,#c4842a);"></div><div class="scene-name">Golden Hour</div><div class="scene-dot"></div></button>
-      <button class="scene-item" data-scene="studio"><div class="scene-swatch" style="background:linear-gradient(135deg,#060606,#2a0606);"></div><div class="scene-name">The Studio</div><div class="scene-dot"></div></button>
+      <!-- All -->
+      <div class="pill-section on" id="pill-all">
+        <button class="slot" data-key="beachcurls" id="slot-beachcurls"><div class="slot-icon" id="icon-beachcurls">🌀</div><div class="slot-info"><div class="slot-name">Beach Curls</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="bodywave" id="slot-bodywave"><div class="slot-icon" id="icon-bodywave">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="sleek" id="slot-sleek"><div class="slot-icon" id="icon-sleek">💇🏿</div><div class="slot-info"><div class="slot-name">Sleek Straight</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="slickdown" id="slot-slickdown"><div class="slot-icon" id="icon-slickdown">🖤</div><div class="slot-info"><div class="slot-name">Slick Down</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="sidepart" id="slot-sidepart"><div class="slot-icon" id="icon-sidepart">↩️</div><div class="slot-info"><div class="slot-name">Side Part</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="highbun" id="slot-highbun"><div class="slot-icon" id="icon-highbun">🌸</div><div class="slot-info"><div class="slot-name">High Bun</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="highpony" id="slot-highpony"><div class="slot-icon" id="icon-highpony">🎀</div><div class="slot-info"><div class="slot-name">High Ponytail</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="braids" id="slot-braids"><div class="slot-icon" id="icon-braids">💫</div><div class="slot-info"><div class="slot-name">Box Braids</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="pixie" id="slot-pixie"><div class="slot-icon" id="icon-pixie">✂️</div><div class="slot-info"><div class="slot-name">Pixie Cut</div></div><div class="slot-dot"></div></button>
+      </div>
+      <!-- Natural -->
+      <div class="pill-section" id="pill-natural">
+        <button class="slot" data-key="beachcurls"><div class="slot-icon">🌀</div><div class="slot-info"><div class="slot-name">Beach Curls</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="bodywave"><div class="slot-icon">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div></div><div class="slot-dot"></div></button>
+      </div>
+      <!-- Straight -->
+      <div class="pill-section" id="pill-straight">
+        <button class="slot" data-key="sleek"><div class="slot-icon">💇🏿</div><div class="slot-info"><div class="slot-name">Sleek Straight</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="slickdown"><div class="slot-icon">🖤</div><div class="slot-info"><div class="slot-name">Slick Down</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="sidepart"><div class="slot-icon">↩️</div><div class="slot-info"><div class="slot-name">Side Part</div></div><div class="slot-dot"></div></button>
+      </div>
+      <!-- Updo -->
+      <div class="pill-section" id="pill-updo">
+        <button class="slot" data-key="highbun"><div class="slot-icon">🌸</div><div class="slot-info"><div class="slot-name">High Bun</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="highpony"><div class="slot-icon">🎀</div><div class="slot-info"><div class="slot-name">High Ponytail</div></div><div class="slot-dot"></div></button>
+      </div>
+      <!-- Braids -->
+      <div class="pill-section" id="pill-braids">
+        <button class="slot" data-key="braids"><div class="slot-icon">💫</div><div class="slot-info"><div class="slot-name">Box Braids</div></div><div class="slot-dot"></div></button>
+        <button class="slot" data-key="pixie"><div class="slot-icon">✂️</div><div class="slot-info"><div class="slot-name">Pixie Cut</div></div><div class="slot-dot"></div></button>
+      </div>
+    </div>
+    <div class="scene-bottom">
+      <div class="scene-bottom-title">Scene</div>
+      <div class="scene-bottom-row">
+        <button class="scene-item on" data-scene="black"><div class="scene-swatch" style="background:#000;border:1px solid #333;"></div><div class="scene-name">Black</div><div class="scene-dot"></div></button>
+        <button class="scene-item" data-scene="closet"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0e06,#3d2010);"></div><div class="scene-name">The Closet</div><div class="scene-dot"></div></button>
+        <button class="scene-item" data-scene="city"><div class="scene-swatch" style="background:linear-gradient(135deg,#06060f,#1a1a3a);"></div><div class="scene-name">City Night</div><div class="scene-dot"></div></button>
+        <button class="scene-item" data-scene="golden"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0800,#c4842a);"></div><div class="scene-name">Golden Hour</div><div class="scene-dot"></div></button>
+        <button class="scene-item" data-scene="studio"><div class="scene-swatch" style="background:linear-gradient(135deg,#060606,#2a0606);"></div><div class="scene-name">The Studio</div><div class="scene-dot"></div></button>
+      </div>
     </div>
   </div>
 
@@ -156,7 +198,6 @@ var OUTFIT_URLS = {
   softfem:   'outfits/soft-fem.png',
   nightglow: 'outfits/night-glow.png'
 };
-// Outfits that are transparent PNGs (no black stripping needed)
 var TRANSPARENT_OUTFITS = {
   blackgown: true,
   goldgown:  true,
@@ -359,6 +400,15 @@ function resetAll(){
   document.querySelectorAll('.scene-item').forEach(function(b){b.classList.remove('on');});
   document.querySelector('[data-scene="black"]').classList.add('on');
   clearOutfits(); updateBadge(); render();
+}
+
+function switchPill(btn, cat) {
+  document.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('on'); });
+  btn.classList.add('on');
+  document.querySelectorAll('.pill-section').forEach(function(s){ s.classList.remove('on'); s.style.display='none'; });
+  var sec = document.getElementById('pill-' + cat);
+  sec.classList.add('on');
+  sec.style.display = 'flex';
 }
 </script>
 </body>
