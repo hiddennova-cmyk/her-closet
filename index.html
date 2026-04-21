@@ -17,30 +17,22 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
 .panel-right{border-left:1px solid var(--border);}
 .panel-title{padding:14px 14px 10px;font-size:0.48rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-dim);border-bottom:1px solid var(--border);flex-shrink:0;display:flex;align-items:center;gap:6px;}
 .panel-title::before{content:'✦';color:var(--gold);}
-.panel-scroll{flex:1;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:3px;}
-.slot{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:8px;border:1.5px solid rgba(201,168,76,0.15);transition:all 0.18s;background:rgba(255,255,255,0.015);cursor:pointer;width:100%;font-family:'Jost',sans-serif;text-align:left;}
+.panel-scroll{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:6px;}
+.slot{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;border:1.5px solid rgba(201,168,76,0.15);transition:all 0.18s;background:rgba(255,255,255,0.015);cursor:pointer;width:100%;font-family:'Jost',sans-serif;text-align:left;}
 .slot:hover{border-color:rgba(201,168,76,0.3);background:var(--active);}
 .slot.on{border-color:var(--gold);background:var(--active);}
 .slot.dim{opacity:0.3;cursor:default;pointer-events:none;}
-.slot-icon{width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;background:#1a0e06;font-size:0.75rem;transition:border-color 0.18s;}
+.slot-icon{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;background:#1a0e06;font-size:1rem;transition:border-color 0.18s;}
 .slot.on .slot-icon{border-color:var(--gold);}
 .slot-icon img{width:100%;height:100%;object-fit:cover;object-position:center 8%;}
 .slot-info{flex:1;}
-.slot-name{font-family:'Cormorant Garamond',serif;font-size:0.78rem;font-style:italic;color:var(--cream);}
+.slot-name{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:var(--cream);}
 .slot.on .slot-name{color:var(--gold-lt);}
-.slot-sub{display:none;}
+.slot-sub{font-size:0.42rem;letter-spacing:0.1em;color:var(--mink);margin-top:2px;}
 .slot-dot{width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.25);flex-shrink:0;transition:all 0.18s;}
 .slot.on .slot-dot{background:var(--gold);border-color:var(--gold);}
-.section-div{font-size:0.4rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);padding:6px 6px 2px;border-top:1px solid var(--border);margin-top:2px;}
-
-.scene-bottom{border-top:1px solid rgba(201,168,76,0.15);padding:8px;flex-shrink:0;background:var(--panel);}
-.scene-bottom-title{font-size:0.38rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px;}
-.scene-bottom-row{display:flex;flex-direction:column;gap:3px;}
-.scene-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:7px;cursor:pointer;border:1.5px solid transparent;transition:all 0.18s;background:none;width:100%;font-family:'Jost',sans-serif;}
-.scene-item:hover{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.2);}
-.scene-item.on{background:rgba(201,168,76,0.1);border-color:var(--gold);}
-.pill-section:not(.on) .scene-item{display:none!important;}
-
+.section-div{font-size:0.44rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dim);padding:10px 10px 4px;border-top:1px solid var(--border);margin-top:4px;}
+.scene-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:all 0.18s;background:rgba(255,255,255,0.015);width:100%;font-family:'Jost',sans-serif;}
 .scene-item:hover{background:var(--active);border-color:rgba(201,168,76,0.2);}
 .scene-item.on{background:var(--active);border-color:var(--gold);}
 .scene-swatch{width:28px;height:28px;border-radius:6px;flex-shrink:0;}
@@ -82,34 +74,6 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
 .toast.show{transform:translateX(-50%) translateY(0);}
 ::-webkit-scrollbar{width:3px;}
 ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
-
-.acc-group{border-bottom:1px solid var(--border);}
-.acc-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:9px 10px;background:none;border:none;color:var(--gold-dim);font-size:0.42rem;letter-spacing:0.28em;text-transform:uppercase;font-family:'Jost',sans-serif;cursor:pointer;transition:color 0.18s;}
-.acc-head:hover{color:var(--gold-lt);}
-.acc-head.open{color:var(--gold-lt);}
-.acc-arr{font-size:0.55rem;transition:transform 0.2s;}
-.acc-head.open .acc-arr{transform:rotate(90deg);}
-.acc-body{display:none;flex-direction:column;gap:3px;padding:4px 0 8px;}
-.acc-body.open{display:flex;}
-.slot{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:8px;border:1.5px solid rgba(201,168,76,0.15);transition:all 0.18s;background:rgba(255,255,255,0.015);cursor:pointer;width:100%;font-family:'Jost',sans-serif;text-align:left;}
-.slot-sub{display:none;}
-
-.cat-pills{display:flex;flex-wrap:wrap;gap:4px;padding:8px;border-bottom:1px solid rgba(201,168,76,0.15);flex-shrink:0;}
-.pill{font-size:0.4rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 9px;border-radius:20px;border:1px solid rgba(201,168,76,0.2);color:var(--mink);background:none;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.18s;}
-.pill.on{background:var(--gold);color:#0a0705;border-color:var(--gold);}
-.pill-section{display:none!important;flex-direction:column;gap:3px;}
-.pill-section.on{display:flex!important;}
-.slot{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:8px;border:1.5px solid rgba(201,168,76,0.15);transition:all 0.18s;background:rgba(255,255,255,0.015);cursor:pointer;width:100%;font-family:'Jost',sans-serif;text-align:left;}
-.slot:hover{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.1);}
-.slot.on{border-color:var(--gold);background:rgba(201,168,76,0.1);}
-.slot-icon{width:32px;height:32px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;background:#F5ECD8;font-size:0.75rem;transition:border-color 0.18s;}
-.slot.on .slot-icon{border-color:var(--gold);}
-.slot-icon img{width:100%;height:100%;object-fit:cover;object-position:center 8%;}
-.slot-name{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-style:italic;color:var(--cream);}
-.slot.on .slot-name{color:var(--gold-lt);}
-.slot-sub{display:none;}
-.slot-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.25);flex-shrink:0;}
-.slot.on .slot-dot{background:var(--gold);border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -118,76 +82,38 @@ html,body{height:100vh;overflow:hidden;background:var(--bg);color:var(--cream);f
 
   <div class="panel panel-left">
     <div class="panel-title">Hair</div>
-    <div class="cat-pills">
-      <button class="pill on" onclick="switchPill(this,'all')">All</button>
-      <button class="pill" onclick="switchPill(this,'natural')">Natural</button>
-      <button class="pill" onclick="switchPill(this,'straight')">Straight</button>
-      <button class="pill" onclick="switchPill(this,'updo')">Updo</button>
-      <button class="pill" onclick="switchPill(this,'braids')">Braids</button>
-    </div>
     <div class="panel-scroll">
-
-      <!-- Bare always pinned -->
-      <div class="slot on" id="slot-none" data-key="none" style="margin-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:8px;">
+      <button class="slot on" data-key="none" id="slot-none">
         <div class="slot-icon">✕</div>
-        <div class="slot-info"><div class="slot-name">Bare</div></div>
+        <div class="slot-info"><div class="slot-name">Bald Base</div><div class="slot-sub">No hair</div></div>
         <div class="slot-dot"></div>
-      </div>
+      </button>
 
-      <!-- All view -->
-      <div class="pill-section on" id="pill-all">
-        <button class="slot" data-key="beachcurls" id="slot-beachcurls"><div class="slot-icon" id="icon-beachcurls">🌀</div><div class="slot-info"><div class="slot-name">Beach Curls</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="bodywave" id="slot-bodywave"><div class="slot-icon" id="icon-bodywave">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="sleek" id="slot-sleek"><div class="slot-icon" id="icon-sleek">💇🏿</div><div class="slot-info"><div class="slot-name">Sleek Straight</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="slickdown" id="slot-slickdown"><div class="slot-icon" id="icon-slickdown">🖤</div><div class="slot-info"><div class="slot-name">Slick Down</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="sidepart" id="slot-sidepart"><div class="slot-icon" id="icon-sidepart">↩️</div><div class="slot-info"><div class="slot-name">Side Part</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="highbun" id="slot-highbun"><div class="slot-icon" id="icon-highbun">🌸</div><div class="slot-info"><div class="slot-name">High Bun</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="highpony" id="slot-highpony"><div class="slot-icon" id="icon-highpony">🎀</div><div class="slot-info"><div class="slot-name">High Ponytail</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="braids" id="slot-braids"><div class="slot-icon" id="icon-braids">💫</div><div class="slot-info"><div class="slot-name">Box Braids</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="pixie" id="slot-pixie"><div class="slot-icon" id="icon-pixie">✂️</div><div class="slot-info"><div class="slot-name">Pixie Cut</div></div><div class="slot-dot"></div></button>
-      </div>
+      <!-- Hair slots — images load from /hair/ folder in repo -->
+      <button class="slot" data-key="braids" id="slot-braids">
+        <div class="slot-icon" id="icon-braids">💫</div>
+        <div class="slot-info"><div class="slot-name">Box Braids</div><div class="slot-sub" id="sub-braids">Loading...</div></div>
+        <div class="slot-dot"></div>
+      </button>
+      <button class="slot" data-key="sleek" id="slot-sleek">
+        <div class="slot-icon" id="icon-sleek">💇🏿</div>
+        <div class="slot-info"><div class="slot-name">Sleek Straight</div><div class="slot-sub" id="sub-sleek">Loading...</div></div>
+        <div class="slot-dot"></div>
+      </button>
+      <button class="slot dim"><div class="slot-icon">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
+      <button class="slot dim"><div class="slot-icon">✨</div><div class="slot-info"><div class="slot-name">Big Afro</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
+      <button class="slot dim"><div class="slot-icon">👑</div><div class="slot-info"><div class="slot-name">Loc Updo</div><div class="slot-sub">Coming soon</div></div><div class="slot-dot"></div></button>
 
-      <!-- Natural -->
-      <div class="pill-section" id="pill-natural">
-        <button class="slot" data-key="beachcurls"><div class="slot-icon" id="icon-beachcurls2">🌀</div><div class="slot-info"><div class="slot-name">Beach Curls</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="bodywave"><div class="slot-icon" id="icon-bodywave2">🌊</div><div class="slot-info"><div class="slot-name">Body Wave</div></div><div class="slot-dot"></div></button>
-      </div>
-
-      <!-- Straight -->
-      <div class="pill-section" id="pill-straight">
-        <button class="slot" data-key="sleek"><div class="slot-icon" id="icon-sleek2">💇🏿</div><div class="slot-info"><div class="slot-name">Sleek Straight</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="slickdown"><div class="slot-icon" id="icon-slickdown2">🖤</div><div class="slot-info"><div class="slot-name">Slick Down</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="sidepart"><div class="slot-icon" id="icon-sidepart2">↩️</div><div class="slot-info"><div class="slot-name">Side Part</div></div><div class="slot-dot"></div></button>
-      </div>
-
-      <!-- Updo -->
-      <div class="pill-section" id="pill-updo">
-        <button class="slot" data-key="highbun"><div class="slot-icon" id="icon-highbun2">🌸</div><div class="slot-info"><div class="slot-name">High Bun</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="highpony"><div class="slot-icon" id="icon-highpony2">🎀</div><div class="slot-info"><div class="slot-name">High Ponytail</div></div><div class="slot-dot"></div></button>
-      </div>
-
-      <!-- Braids -->
-      <div class="pill-section" id="pill-braids">
-        <button class="slot" data-key="braids"><div class="slot-icon" id="icon-braids2">💫</div><div class="slot-info"><div class="slot-name">Box Braids</div></div><div class="slot-dot"></div></button>
-        <button class="slot" data-key="pixie"><div class="slot-icon" id="icon-pixie2">✂️</div><div class="slot-info"><div class="slot-name">Pixie Cut</div></div><div class="slot-dot"></div></button>
-      </div>
-
-    </div>
-
-    <!-- Scene pinned at bottom -->
-    <div class="scene-bottom">
-      <div class="scene-bottom-title">Scene</div>
-      <div class="scene-bottom-row">
-        <button class="scene-item on" data-scene="black"><div class="scene-swatch" style="background:#000;border:1px solid #333;"></div><div class="scene-name">Black</div><div class="scene-dot"></div></button>
-        <button class="scene-item" data-scene="closet"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0e06,#3d2010);"></div><div class="scene-name">The Closet</div><div class="scene-dot"></div></button>
-        <button class="scene-item" data-scene="city"><div class="scene-swatch" style="background:linear-gradient(135deg,#06060f,#1a1a3a);"></div><div class="scene-name">City Night</div><div class="scene-dot"></div></button>
-        <button class="scene-item" data-scene="golden"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0800,#c4842a);"></div><div class="scene-name">Golden Hour</div><div class="scene-dot"></div></button>
-        <button class="scene-item" data-scene="studio"><div class="scene-swatch" style="background:linear-gradient(135deg,#060606,#2a0606);"></div><div class="scene-name">The Studio</div><div class="scene-dot"></div></button>
-      </div>
+      <div class="section-div">Scene</div>
+      <button class="scene-item on" data-scene="black"><div class="scene-swatch" style="background:#000;border:1px solid #333;"></div><div class="scene-name">Black</div><div class="scene-dot"></div></button>
+      <button class="scene-item" data-scene="closet"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0e06,#3d2010);"></div><div class="scene-name">The Closet</div><div class="scene-dot"></div></button>
+      <button class="scene-item" data-scene="city"><div class="scene-swatch" style="background:linear-gradient(135deg,#06060f,#1a1a3a);"></div><div class="scene-name">City Night</div><div class="scene-dot"></div></button>
+      <button class="scene-item" data-scene="golden"><div class="scene-swatch" style="background:linear-gradient(135deg,#1a0800,#c4842a);"></div><div class="scene-name">Golden Hour</div><div class="scene-dot"></div></button>
+      <button class="scene-item" data-scene="studio"><div class="scene-swatch" style="background:linear-gradient(135deg,#060606,#2a0606);"></div><div class="scene-name">The Studio</div><div class="scene-dot"></div></button>
     </div>
   </div>
 
-    <div class="center">
+  <div class="center">
     <div class="top-bar">
       <div class="logo">Her <b>Closet</b></div>
       <button class="btn" onclick="resetAll()">✕ Reset</button>
@@ -211,20 +137,17 @@ var IMG_RED  = document.getElementById('d-red').value;
 
 // Hair images loaded from /hair/ folder in GitHub repo
 var HAIR_URLS = {
-  slickdown: 'hair/slickdown.png',
-  pixie:     'hair/pixie.png',
-  highbun:   'hair/highbun.png',
-  bodywave:  'hair/bodywave.png',
-  beachcurls:'hair/beachcurls.png',
-  highpony:  'hair/highpony.png',
-  sidepart:  'hair/sidepart.png',
   braids: 'hair/braids.png',
   sleek:  'hair/sleek.png'
 };
 
 // Outfit images loaded from /outfits/ folder
 var OUTFIT_URLS = {
-  red: 'outfits/red-gown.png'
+  red:       'outfits/red-gown.png',
+  blackgown: 'outfits/black-gown.png',
+  goldgown:  'outfits/gold-gown.png',
+  softfem:   'outfits/soft-fem.png',
+  nightglow: 'outfits/night-glow.png'
 };
 
 var canvas = document.getElementById('stage');
@@ -267,6 +190,16 @@ loadImg(OUTFIT_URLS.red, function(img){
   loadImg(IMG_RED, function(img){
     outfitImgs['red'] = {img:img, label:'Red Gown'};
     var t = document.getElementById('card-red'); if(t) t.src = IMG_RED;
+    render();
+  });
+});
+
+// Load additional outfits
+['blackgown','goldgown','softfem','nightglow'].forEach(function(key) {
+  loadImg(OUTFIT_URLS[key], function(img) {
+    var labels = {blackgown:'Black Gown',goldgown:'Gold Gown',softfem:'Soft Fem',nightglow:'Night Glow'};
+    outfitImgs[key] = {img:img, label:labels[key]};
+    var t = document.getElementById('card-'+key); if(t) t.src = OUTFIT_URLS[key];
     render();
   });
 });
@@ -345,10 +278,10 @@ document.querySelectorAll('.scene-item').forEach(function(btn){
 });
 
 var CATS=[
-  {k:'editorial',lbl:'Editorial',items:[{key:'red',label:'Red Gown'}]},
-  {k:'thatgirl', lbl:'That Girl',items:[]},
+  {k:'editorial',lbl:'Editorial',items:[{key:'red',label:'Red Gown'},{key:'blackgown',label:'Black Gown'},{key:'goldgown',label:'Gold Gown'}]},
+  {k:'thatgirl', lbl:'That Girl',items:[{key:'softfem',label:'Soft Fem'}]},
   {k:'boss',     lbl:'Boss',     items:[]},
-  {k:'city',     lbl:'City Girl',items:[]},
+  {k:'city',     lbl:'City Girl',items:[{key:'nightglow',label:'Night Glow'}]},
 ];
 var catBar=document.getElementById('cat-bar');
 var oGrids=document.getElementById('o-grids');
@@ -412,23 +345,6 @@ function resetAll(){
   document.querySelectorAll('.scene-item').forEach(function(b){b.classList.remove('on');});
   document.querySelector('[data-scene="black"]').classList.add('on');
   clearOutfits(); updateBadge(); render();
-}
-
-function toggleAcc(btn) {
-  var body = btn.nextElementSibling;
-  var isOpen = btn.classList.contains('open');
-  // close all
-  document.querySelectorAll('.acc-head').forEach(function(h){ h.classList.remove('open'); h.nextElementSibling.classList.remove('open'); });
-  if (!isOpen) { btn.classList.add('open'); body.classList.add('open'); }
-}
-
-function switchPill(btn, cat) {
-  document.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('on'); });
-  btn.classList.add('on');
-  document.querySelectorAll('.pill-section').forEach(function(s){ s.classList.remove('on'); s.style.display='none'; });
-  var sec = document.getElementById('pill-' + cat);
-  sec.classList.add('on');
-  sec.style.display = 'flex';
 }
 </script>
 </body>
